@@ -1,0 +1,17 @@
+{% extends 'layout.html' %}
+{% block content %}
+<div ng-app="slowlyApp">
+    <div ng-controller="DetailController">
+        <h2>{{greeting}}</h2>
+        <ul>
+            <li ng-repeat="phone in phones">
+                <span>{{phone.name}}</span>
+                <p>{{phone.snippet}}</p>
+            </li>
+        </ul>
+    </div>
+    <div ng-controller="DataController">
+        <h2>The sum of the data is currently {{sum}}</h2>
+    </div>
+</div>
+{% endblock %}
