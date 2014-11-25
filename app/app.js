@@ -8,7 +8,7 @@ var app = express()
 
 app.engine('html', cons.swig);
 app.set('view engine', 'html');
-app.set('views', __dirname + '/templates');
+app.set('views', [__dirname + '/../dist/templates']);
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -16,6 +16,7 @@ app.use(function (req, res, next) {
     setTimeout(next, Math.floor(Math.random() * 500));
 })
 
+app.use(express.static('dist'))
 app.use(express.static('public'))
 
 app.get('/', function (req, res) {
