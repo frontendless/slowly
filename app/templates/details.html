@@ -1,5 +1,6 @@
 {% extends 'layout.html' %}
 {% block content %}
+
 <div ng-app="slowlyApp">
     <div ng-controller="DetailController">
         <h2>{{greeting}}</h2>
@@ -9,9 +10,46 @@
                 <p>{{phone.snippet}}</p>
             </li>
         </ul>
+        <input ng-model="greeting" type="text">
     </div>
     <div ng-controller="DataController">
-        <h2>The sum of the data is currently {{sum}}</h2>
+         <h2 ng-show="sum">
+            The sum of the data is currently {{sum}}
+        </h2>
+
+        <button type="button" ng-click="loadData()">Load data</button>
+        <button type="button" ng-click="changeData()">Change data</button>
+        <style type="text/css">
+            .big-table td {
+                transition: background-color 1s ease;
+                background-color: transparent;
+            }
+            .big-table td:hover {
+                transition: background-color 0s ease;
+                background-color: red;
+            }
+        </style>
+        <!--<table class="table table-bordered table-striped big-table">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th ng-repeat="cell in data[0].cells">
+                        {{cell.key}}
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="row in data">
+                    <th>{{row.key}}</th>
+                    <td ng-repeat="cell in row.cells">
+                        {{cell.text | number}}
+                    </td>
+                </tr>
+            </tbody>
+        </table>-->
+        <div>
+            <slowly-table ng-model="data">
+        </div>
     </div>
 </div>
 {% endblock %}

@@ -8,7 +8,7 @@ var app = express()
 
 app.engine('html', cons.swig);
 app.set('view engine', 'html');
-app.set('views', [__dirname + '/../dist/templates']);
+app.set('views', [__dirname + '/../dist/templates',  __dirname + '/templates']);
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
