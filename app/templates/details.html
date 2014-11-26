@@ -1,6 +1,6 @@
 {% extends 'layout.html' %}
 {% block content %}
-
+<div class="container">
 <div ng-app="slowlyApp">
     <div ng-controller="DetailController">
         <h2>{{greeting}}</h2>
@@ -51,5 +51,6 @@
             <slowly-table ng-model="data">
         </div>
     </div>
+</div>
 </div>
 {% endblock %}
